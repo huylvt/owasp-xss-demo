@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Blog Post - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/static/css/blog-post.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">My Blog</a>
+                <ul class="nav navbar-nav">
+                    <li><a href="/login?message=Please login to start your session">Login</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <!-- Blog Post Content Column -->
+            <div class="col-lg-8">
+
+                <!-- Blog Post -->
+
+                <!-- Title -->
+                <h1>Instructions & details - First Post</h1>
+
+                <!-- Author -->
+                <p class="lead">
+                    by <a href="#">admin</a>
+                </p>
+
+                <hr>
+
+                <!-- Date/Time -->
+                <p><span class="glyphicon glyphicon-time"></span> Posted on July 1, 2016 at 9:00 PM</p>
+
+              
+                <hr>
+
+                <!-- Post Content -->
+                <p class="lead">This post is very fake. The interesting stuff is on the bottom, if you're interested in actually doing
+        anything with this vulnerable Flask application!</p>
+                <p class="lead">The comments field below stores and displays all fields unescaped. Enjoy!</p>
+                
+                <hr>
+
+                <!-- Blog Comments -->
+
+                <!-- Comments Form -->
+                <div class="well">
+                    <form action="{{ url_for('comment') }}" method="POST">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input class="form-control" name="name" />
+                        </div>
+                        <div class="form-group">
+                            <label>Comment</label>
+                            <textarea class="form-control" rows="3" name="comment"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+
+                <hr>
+
+                <!-- Posted Comments -->
+                {% for comment in comments %}
+                <!-- Comment -->
+                <div class="media">
+                    <div class="media-body">
+                        <p class="media-heading"><strong>{{ comment.name }}</strong> says:</p>
+                        {{ comment.comment|safe }}
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+
+            <!-- Blog Sidebar Widgets Column -->
+            <div class="col-md-4">
+
+                <!-- Blog Search Well -->
+                <div class="well">
+                    <h4>Blog Search</h4>
+                    <form action="/search" method="GET">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="q">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </form>
+                    <!-- /.input-group -->
+                </div>
+
+                <!-- Side Widget Well -->
+                <div class="well">
+                    <h4>About me!</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2016</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="/static/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
